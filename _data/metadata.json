@@ -1,0 +1,21 @@
+{
+  "title": "NOTES",
+  "url": "https://thomkeh.github.io/blog",
+  "language": "en",
+  "description": "Some of my notes.",
+  "feed": {
+    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://thomkeh.github.io/blog"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://example.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Thomas Kehrenberg",
+    "email": "youremailaddress@example.com",
+    "url": "https://example.com/about-me/"
+  }
+}

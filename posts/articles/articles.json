@@ -1,0 +1,7 @@
+{
+  "permalink": "a/{{ page.fileSlug | slugify }}/",
+  "layout": "layouts/post.njk",
+  "tags": [
+    "posts"
+  ]
+}

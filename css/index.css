@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+/* Colors */
+:root {
+  --a-normal: #6F1C4A;
+  --a-visited: #6F1C4A;
+  --a-internal: #082840;
+  --bg: #fff;
+  --block-code-bg: #f6f6f6;
+  --direct-link: #aaa;
+  --inline-code-bg: #eee;
+  --inline-code: #900;
+  --metadata: #555;
+  --separator: #e0e0e0;
+  --tag-border: #C0C0C0;
+  --tag-focus: #e0e0e0;
+  --tag-normal: #555;
+  --text: #000;
+  --warning: #ffc;
+  --normal-weight: 400;
+  --bold-weight: 600;
+}
+
+/* Dark scheme colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --a-normal: #CCDDEE;
+    --a-visited: #DDEEFF;
+    --a-internal: #CCDDEE;
+    --bg: #0d1117;
+    --block-code-bg: #393939;
+    --inline-code-bg: #333;
+    --inline-code: #D66;
+    --metadata: #999;
+    --separator: #506060;
+    --tag-focus: #506060;
+    --text: #C9D1D9;
+    --normal-weight: 300;
+    --bold-weight: 700;
+  }
+ }
+
+/* Global stylesheet */
+* {
+  /* box-sizing: border-box; */
+}
+
+/* root size */
+html {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+a, a:visited {
+  color: var(--a-internal);
+}
+main {
+  font-family: "Zilla Slab", serif;
+  font-weight: var(--normal-weight);
+  padding: 1rem;
+  font-size: 1.0rem;
+  max-width: 37rem;
+  line-height: 1.3em;
+  margin: 0 auto
+}
+main :first-child {
+  margin-top: 0;
+}
+main p {
+  text-align: justify;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+	hyphens: auto;
+}
+header {
+  max-width: 37rem;
+  margin: 0 auto;
+  border-bottom: 1px dashed var(--separator);
+  font-family: "Zilla Slab", serif;
+  padding: 0 1rem;
+}
+header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tmpl-post a {
+  color: var(--a-normal);
+}
+.tmpl-post a:visited {
+  color: var(--a-visited);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Zilla Slab", serif;
+  text-align: left;
+  letter-spacing: inherit;
+  margin: 0.5rem 0;
+}
+h1, h2, h3, h4 {
+  /* these need to be relative to make the anchors absolute */
+  position: relative;
+}
+h1, h2 {
+  font-weight: var(--normal-weight);
+}
+h1 {
+  font-size: 2.25rem;
+  padding-bottom: 1.25rem;
+  line-height: 1.2em;
+}
+h2 {
+  font-size: 1.75rem;
+  padding-bottom: 0.50rem;
+  line-height: 110%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--separator);
+}
+h3 {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 1.0rem 0;
+}
+h4 {
+  font-size: 1.0rem;
+}
+h5 {
+  display: inline;
+  font-size: 1.0rem;
+  float: left;  /* this makes it merge with the following p */
+  margin: 0;
+  padding: 0 1rem 0 0;
+  line-height: 1.4em;
+}
+h5::after {
+  content: "."
+}
+strong {
+  font-weight: var(--bold-weight);
+}
+table {
+  margin: 1em 0;
+}
+table td,
+table th {
+  padding-right: 1em;
+}
+
+pre.mermaid {
+  text-align: center;
+}
+
+pre:not(.mermaid),
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  line-height: 1.5;
+}
+pre:not(.mermaid) {
+  font-size: 14px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: .5em 0;
+  background-color: var(--block-code-bg);
+}
+p code, li>code {
+  background-color: var(--inline-code-bg);
+  color: var(--inline-code);
+  font-size: 0.8rem;
+  padding: 0 0.1rem 0 0.1rem;
+  border-radius: 5px;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  word-spacing: normal;
+  word-break: normal;
+}
+.highlight-line {
+  display: block;
+  padding: 0.125em 1em;
+  text-decoration: none; /* override del, ins, mark defaults */
+  color: inherit; /* override del, ins, mark defaults */
+}
+
+/* allow highlighting empty lines */
+.highlight-line:empty:before {
+  content: " ";
+}
+/* avoid double line breaks when using display: block; */
+.highlight-line + br {
+  display: none;
+}
+
+.highlight-line-isdir {
+  color: #b0b0b0;
+  background-color: #222;
+}
+.highlight-line-active {
+  background-color: #444;
+  background-color: hsla(0, 0%, 27%, .8);
+}
+.highlight-line-add {
+  background-color: #45844b;
+}
+.highlight-line-remove {
+  background-color: #902f2f;
+}
+
+/* Header */
+.home {
+  padding: 0 1rem 0 0;
+  float: left;
+  margin: 1rem 0; /* 16px /16 */
+  font-size: 1em; /* 16px /16 */
+}
+.home :link:not(:hover) {
+  text-decoration: none;
+}
+
+/* Nav */
+.nav {
+  padding: 0;
+  list-style: none;
+  float: left;
+  margin-left: 1em;
+}
+.nav-item {
+  display: inline-block;
+  margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+  text-decoration: none;
+}
+.nav-item-active {
+  font-weight: var(--bold-weight);
+  text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+  list-style: none;
+  padding: 0;
+}
+.postlist-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  /* counter-increment: start-from -1; */
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+.postlist-item:before {
+  display: inline-block;
+  pointer-events: none;
+  /* content: "" counter(start-from, decimal-leading-zero) ". "; */
+  line-height: 100%;
+  text-align: right;
+}
+.postlist-date,
+.postlist-item:before {
+  font-size: 0.8125em; /* 13px /16 */
+  color: var(--metadata);
+}
+.postlist-date {
+  margin-left: 0.5rem;
+  word-spacing: -0.5px;
+}
+.postlist-link {
+  padding-left: .25em;
+  padding-right: .25em;
+  text-underline-position: from-font;
+  text-underline-offset: 0;
+  text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+  font-weight: var(--bold-weight);
+}
+.tmpl-home .postlist-link {
+  font-size: 1.1875em; /* 19px /16 */
+  /* font-weight: var(--bold-weight); */
+  text-decoration: none;
+}
+
+.tmpl-home .postlist-link:hover {
+  text-decoration: underline;
+}
+
+/* Time */
+time {
+  font-size: 0.8rem;
+  color: var(--metadata);
+}
+
+
+/* Tags */
+.post-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* text-transform: uppercase; */
+  font-size: 0.8rem;
+  font-style: italic;
+  padding: 0.09090909090909em 0.3636363636364em; /* 1px 4px /11 */
+  margin-left: 0.8em; /* 8px /10 */
+  color: var(--tag-normal);
+  /* border: 1px solid var(--tag-border);
+  border-radius: 0.25em; /* 3px /12 * / */
+  text-decoration: none;
+  line-height: 1.8;
+}
+.post-tag::before {
+  content: "#"
+}
+a[href].post-tag,
+a[href].post-tag:visited {
+  /* color: inherit; */
+  color: var(--tag-normal);
+}
+a[href].post-tag:hover,
+a[href].post-tag:focus {
+  background-color: var(--tag-focus);
+}
+.postlist-item > .post-tag {
+  align-self: center;
+}
+
+/* Warning */
+.warning {
+  background-color: var(--warning);
+  padding: 1em 0.625em; /* 16px 10px /16 */
+}
+.warning ol:only-child {
+  margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.direct-link {
+  font-family: sans-serif;
+  text-decoration: none;
+  font-style: normal;
+  position: absolute;
+  left: -1em;
+  padding-right: 0.5em; /* to avoid a gap */
+}
+a[href].direct-link,
+a[href].direct-link:visited {
+  color: transparent;
+}
+a[href].direct-link:focus,
+a[href].direct-link:focus:visited,
+:hover > a[href].direct-link,
+:hover > a[href].direct-link:visited {
+  color: var(--direct-link);
+}
+
+/* footnotes */
+sup.footnote-ref {
+  vertical-align: baseline;
+  font-size: medium;
+}
+sup.footnote-ref a {
+  text-decoration: none;
+}
+
+/* math */
+p.katex-block {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+span.katex {
+  font-size: 1rem;
+}
+
+/* images */
+main img {
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* blockquotes */
+blockquote {
+  color: var(--metadata);
+}
+
+footer {
+  max-width: 37rem;
+  margin: 3rem auto 0;
+  border-top: 1px dashed var(--separator);
+  padding: 1rem;
+  display: flex;
+  font-size: 0.7rem;
+}
+
+footer p {
+  flex: auto;
+  text-align: center;
+}
